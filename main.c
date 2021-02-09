@@ -14,7 +14,7 @@ void main() {
 
     const int BIRD_ID = 0;
 
-    set_bkg_data(0, 16, BackgroundTileset);
+    set_bkg_data(0, 18, BackgroundTileset);
     set_bkg_tiles(0, 0, BackgroundTilemapWidth, BackgroundTilemapHeight, BackgroundTilemap);
 
     SHOW_BKG;

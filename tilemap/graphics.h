@@ -10,7 +10,7 @@
   Compression          : None.
   Counter              : None.
   Tile size            : 8 x 8
-  Tiles                : 0 to 15
+  Tiles                : 0 to 17
 
   Palette colors       : Included.
   SGB Palette          : Constant per entry.
@@ -115,6 +115,8 @@
 #define BackgroundTilesetSGB13 0
 #define BackgroundTilesetSGB14 0
 #define BackgroundTilesetSGB15 0
+#define BackgroundTilesetSGB16 0
+#define BackgroundTilesetSGB17 0
 
 /* CGB palette entries. */
 #define BackgroundTilesetCGB0 1
@@ -127,12 +129,14 @@
 #define BackgroundTilesetCGB7 1
 #define BackgroundTilesetCGB8 1
 #define BackgroundTilesetCGB9 1
-#define BackgroundTilesetCGB10 1
+#define BackgroundTilesetCGB10 2
 #define BackgroundTilesetCGB11 1
 #define BackgroundTilesetCGB12 2
 #define BackgroundTilesetCGB13 1
 #define BackgroundTilesetCGB14 2
 #define BackgroundTilesetCGB15 1
+#define BackgroundTilesetCGB16 2
+#define BackgroundTilesetCGB17 1
 /* Start of tile array. */
 extern unsigned char BackgroundTileset[];
 
