@@ -24,8 +24,8 @@
 
 
 /* Bank of tiles. */
-#define BirdGraphiscBank 0
+#define BirdGraphicsBank 0
 /* Start of tile array. */
-extern unsigned char BirdGraphisc[];
+extern unsigned char BirdGraphics[];
 
 /* End of BIRD.H */

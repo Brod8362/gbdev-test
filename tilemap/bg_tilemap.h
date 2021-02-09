@@ -7,9 +7,9 @@
  Info:
    Section       : 
    Bank          : 0
-   Map size      : 9 x 9
+   Map size      : 40 x 18
    Tile set      : Z:\home\brod8362\projects\gbflappy\tilemap\background.gbr
-   Plane count   : 0.5 plane (4 bits)
+   Plane count   : 1 plane (8 bits)
    Plane order   : Tiles are continues
    Tile offset   : 0
    Split data    : No
@@ -18,8 +18,8 @@
 
 */
 
-#define BackgroundTilemapWidth 9
-#define BackgroundTilemapHeight 9
+#define BackgroundTilemapWidth 40
+#define BackgroundTilemapHeight 18
 #define BackgroundTilemapBank 0
 
 extern unsigned char BackgroundTilemap[];

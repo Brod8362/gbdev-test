@@ -9,8 +9,8 @@
   Format               : Gameboy 4 color.
   Compression          : None.
   Counter              : None.
-  Tile size            : 16 x 16
-  Tiles                : 0 to 4
+  Tile size            : 8 x 8
+  Tiles                : 0 to 15
 
   Palette colors       : Included.
   SGB Palette          : Constant per entry.
@@ -24,94 +24,116 @@
 
 
 /* Bank of tiles. */
-#define BackgroundGraphicsBank 0
+#define BackgroundTilesetBank 0
 
 /* Super Gameboy palette 0 */
-#define BackgroundGraphicsSGBPal0c0 6076
-#define BackgroundGraphicsSGBPal0c1 8935
-#define BackgroundGraphicsSGBPal0c2 6596
-#define BackgroundGraphicsSGBPal0c3 5344
+#define BackgroundTilesetSGBPal0c0 6076
+#define BackgroundTilesetSGBPal0c1 8935
+#define BackgroundTilesetSGBPal0c2 6596
+#define BackgroundTilesetSGBPal0c3 5344
 
 /* Super Gameboy palette 1 */
-#define BackgroundGraphicsSGBPal1c0 6076
-#define BackgroundGraphicsSGBPal1c1 8935
-#define BackgroundGraphicsSGBPal1c2 6596
-#define BackgroundGraphicsSGBPal1c3 5344
+#define BackgroundTilesetSGBPal1c0 6076
+#define BackgroundTilesetSGBPal1c1 8935
+#define BackgroundTilesetSGBPal1c2 6596
+#define BackgroundTilesetSGBPal1c3 5344
 
 /* Super Gameboy palette 2 */
-#define BackgroundGraphicsSGBPal2c0 6076
-#define BackgroundGraphicsSGBPal2c1 8935
-#define BackgroundGraphicsSGBPal2c2 6596
-#define BackgroundGraphicsSGBPal2c3 5344
+#define BackgroundTilesetSGBPal2c0 6076
+#define BackgroundTilesetSGBPal2c1 8935
+#define BackgroundTilesetSGBPal2c2 6596
+#define BackgroundTilesetSGBPal2c3 5344
 
 /* Super Gameboy palette 3 */
-#define BackgroundGraphicsSGBPal3c0 6076
-#define BackgroundGraphicsSGBPal3c1 8935
-#define BackgroundGraphicsSGBPal3c2 6596
-#define BackgroundGraphicsSGBPal3c3 5344
+#define BackgroundTilesetSGBPal3c0 6076
+#define BackgroundTilesetSGBPal3c1 8935
+#define BackgroundTilesetSGBPal3c2 6596
+#define BackgroundTilesetSGBPal3c3 5344
 
 /* Gameboy Color palette 0 */
-#define BackgroundGraphicsCGBPal0c0 6076
-#define BackgroundGraphicsCGBPal0c1 276
-#define BackgroundGraphicsCGBPal0c2 32767
-#define BackgroundGraphicsCGBPal0c3 0
+#define BackgroundTilesetCGBPal0c0 6076
+#define BackgroundTilesetCGBPal0c1 276
+#define BackgroundTilesetCGBPal0c2 32767
+#define BackgroundTilesetCGBPal0c3 0
 
 /* Gameboy Color palette 1 */
-#define BackgroundGraphicsCGBPal1c0 29344
-#define BackgroundGraphicsCGBPal1c1 32767
-#define BackgroundGraphicsCGBPal1c2 31288
-#define BackgroundGraphicsCGBPal1c3 5344
+#define BackgroundTilesetCGBPal1c0 29344
+#define BackgroundTilesetCGBPal1c1 32767
+#define BackgroundTilesetCGBPal1c2 31288
+#define BackgroundTilesetCGBPal1c3 5344
 
 /* Gameboy Color palette 2 */
-#define BackgroundGraphicsCGBPal2c0 29344
-#define BackgroundGraphicsCGBPal2c1 32767
-#define BackgroundGraphicsCGBPal2c2 31288
-#define BackgroundGraphicsCGBPal2c3 0
+#define BackgroundTilesetCGBPal2c0 29344
+#define BackgroundTilesetCGBPal2c1 32767
+#define BackgroundTilesetCGBPal2c2 31288
+#define BackgroundTilesetCGBPal2c3 0
 
 /* Gameboy Color palette 3 */
-#define BackgroundGraphicsCGBPal3c0 6076
-#define BackgroundGraphicsCGBPal3c1 8935
-#define BackgroundGraphicsCGBPal3c2 6596
-#define BackgroundGraphicsCGBPal3c3 5344
+#define BackgroundTilesetCGBPal3c0 6076
+#define BackgroundTilesetCGBPal3c1 8935
+#define BackgroundTilesetCGBPal3c2 6596
+#define BackgroundTilesetCGBPal3c3 5344
 
 /* Gameboy Color palette 4 */
-#define BackgroundGraphicsCGBPal4c0 6076
-#define BackgroundGraphicsCGBPal4c1 8935
-#define BackgroundGraphicsCGBPal4c2 6596
-#define BackgroundGraphicsCGBPal4c3 5344
+#define BackgroundTilesetCGBPal4c0 6076
+#define BackgroundTilesetCGBPal4c1 8935
+#define BackgroundTilesetCGBPal4c2 6596
+#define BackgroundTilesetCGBPal4c3 5344
 
 /* Gameboy Color palette 5 */
-#define BackgroundGraphicsCGBPal5c0 6076
-#define BackgroundGraphicsCGBPal5c1 8935
-#define BackgroundGraphicsCGBPal5c2 6596
-#define BackgroundGraphicsCGBPal5c3 5344
+#define BackgroundTilesetCGBPal5c0 6076
+#define BackgroundTilesetCGBPal5c1 8935
+#define BackgroundTilesetCGBPal5c2 6596
+#define BackgroundTilesetCGBPal5c3 5344
 
 /* Gameboy Color palette 6 */
-#define BackgroundGraphicsCGBPal6c0 6076
-#define BackgroundGraphicsCGBPal6c1 8935
-#define BackgroundGraphicsCGBPal6c2 6596
-#define BackgroundGraphicsCGBPal6c3 5344
+#define BackgroundTilesetCGBPal6c0 6076
+#define BackgroundTilesetCGBPal6c1 8935
+#define BackgroundTilesetCGBPal6c2 6596
+#define BackgroundTilesetCGBPal6c3 5344
 
 /* Gameboy Color palette 7 */
-#define BackgroundGraphicsCGBPal7c0 6076
-#define BackgroundGraphicsCGBPal7c1 8935
-#define BackgroundGraphicsCGBPal7c2 6596
-#define BackgroundGraphicsCGBPal7c3 5344
+#define BackgroundTilesetCGBPal7c0 6076
+#define BackgroundTilesetCGBPal7c1 8935
+#define BackgroundTilesetCGBPal7c2 6596
+#define BackgroundTilesetCGBPal7c3 5344
 
 /* SGB palette entries. */
-#define BackgroundGraphicsSGB0 0
-#define BackgroundGraphicsSGB1 0
-#define BackgroundGraphicsSGB2 0
-#define BackgroundGraphicsSGB3 0
-#define BackgroundGraphicsSGB4 0
+#define BackgroundTilesetSGB0 0
+#define BackgroundTilesetSGB1 0
+#define BackgroundTilesetSGB2 0
+#define BackgroundTilesetSGB3 0
+#define BackgroundTilesetSGB4 0
+#define BackgroundTilesetSGB5 0
+#define BackgroundTilesetSGB6 0
+#define BackgroundTilesetSGB7 0
+#define BackgroundTilesetSGB8 0
+#define BackgroundTilesetSGB9 0
+#define BackgroundTilesetSGB10 0
+#define BackgroundTilesetSGB11 0
+#define BackgroundTilesetSGB12 0
+#define BackgroundTilesetSGB13 0
+#define BackgroundTilesetSGB14 0
+#define BackgroundTilesetSGB15 0
 
 /* CGB palette entries. */
-#define BackgroundGraphicsCGB0 1
-#define BackgroundGraphicsCGB1 1
-#define BackgroundGraphicsCGB2 1
-#define BackgroundGraphicsCGB3 1
-#define BackgroundGraphicsCGB4 2
+#define BackgroundTilesetCGB0 1
+#define BackgroundTilesetCGB1 1
+#define BackgroundTilesetCGB2 1
+#define BackgroundTilesetCGB3 1
+#define BackgroundTilesetCGB4 1
+#define BackgroundTilesetCGB5 2
+#define BackgroundTilesetCGB6 1
+#define BackgroundTilesetCGB7 1
+#define BackgroundTilesetCGB8 1
+#define BackgroundTilesetCGB9 1
+#define BackgroundTilesetCGB10 1
+#define BackgroundTilesetCGB11 1
+#define BackgroundTilesetCGB12 2
+#define BackgroundTilesetCGB13 1
+#define BackgroundTilesetCGB14 2
+#define BackgroundTilesetCGB15 1
 /* Start of tile array. */
-extern unsigned char BackgroundGraphics[];
+extern unsigned char BackgroundTileset[];
 
 /* End of GRAPHICS.H */
