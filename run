@@ -1,2 +1,5 @@
 make
-visualboyadvance-m gbflappy.gb
+if [ $? -eq 0 ]
+then
+	visualboyadvance-m gbflappy.gb
+fi
