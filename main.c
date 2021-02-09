@@ -7,6 +7,8 @@
 #include "tilemap/graphics.c"
 #include "tilemap/bg_tilemap.c"
 
+#include "spritemanager.c"
+
 int frame = 0;
 
 //todo load this from the data instead of doing it manually
@@ -23,6 +25,8 @@ void main() {
     short pos_x = 50;
     short pos_y = 70;
 
+    ObjManager objmanager;
+
     const short bird_sprite_id = 0;
     const short health_sprites[] = {1,2,3};
 
@@ -37,6 +41,7 @@ void main() {
     SPRITES_8x8;
     set_sprite_data(0,0,SpritesTLE0);
     set_sprite_data(1,0,SpritesTLE2);
+    set_sprite_data(2,0,SpritesTLE1);
 
     set_sprite_tile(bird_sprite_id,0);
     set_sprite_palette(0, 1, birdPalette);
@@ -46,10 +51,13 @@ void main() {
     for (int i = 0; i < 3; i++) {
         int id = health_sprites[i];
         set_sprite_tile(id, 1);
-        move_sprite(id, (i+1)*9, 15);
+        move_sprite(id, (i+1)*9, 16);
     }
 
     SHOW_SPRITES;
+
+    om_init(&objmanager, 4);
+
 
     DISPLAY_ON;
 
@@ -75,6 +83,13 @@ void main() {
 
         move_sprite(bird_sprite_id, pos_x, pos_y);
         scroll_bkg(frame%2, 0);
+
+        if (frame%100==0) {
+            UINT8 id = assign_id(&objmanager);
+            set_sprite_tile(id, 2);
+            move_sprite(id, 150, pos_y);
+        }
+
         wait_vbl_done();
         frame++;
     }
