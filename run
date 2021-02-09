@@ -1,5 +1,5 @@
 make
 if [ $? -eq 0 ]
 then
-	visualboyadvance-m gbflappy.gb
+	visualboyadvance-m gbflappy.gbc
 fi

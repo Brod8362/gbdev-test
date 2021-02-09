@@ -1,7 +1,7 @@
 AS = lcc -c
-CC = lcc -Wa-l -Wl-m
+CC = lcc -Wa-l -Wl-m -Wl-yp0x143=0x80
 
-BIN = gbflappy.gb
+BIN = gbflappy.gbc
 OBJS = main.o
 EXTRA = main.lst main.sym gbflappy.map
 
