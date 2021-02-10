@@ -24,7 +24,7 @@ void tick(ProjectileManager* prjman) {
             p->pos_x+=p->vel_x;
             p->pos_y+=p->vel_y;
             if (p->pos_x < SCREEN_X_MIN || p->pos_y < SCREEN_Y_MIN || p->pos_x > SCREEN_X_MAX || p->pos_y > SCREEN_Y_MAX) {
-                set_sprite_tile(p->sprite_id, -1);
+                set_sprite_tile(p->sprite_id, 99);
                 remove_projectile(prjman, p->sprite_id);
             } else {
                 move_sprite(p->sprite_id, p->pos_x, p->pos_y);

@@ -2,6 +2,7 @@
 #include <gb/cgb.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #include "graphics/sprites.c"
 #include "tilemap/graphics.c"
@@ -11,10 +12,10 @@
 #include "projectilemanager.c"
 #include "display.h"
 
-#define SPRITE_ID_BIRD 0
-#define SPRITE_ID_BALL 1
-#define SPRITE_ID_HEART 2
-#define SPRITE_ID_NUM0 3
+#define SPRITE_BIRD 0
+#define SPRITE_BALL 1
+#define SPRITE_HEART 2
+#define SPRITE_NUM0 3
 
 int frame = 0;
 
@@ -31,7 +32,7 @@ void update_score(UINT8 ids[], UINT8 len, int score) {
     for (INT8 i = len-1; i >= 0; i--) {
         int digit = score%10;
         score/=10;
-        set_sprite_tile(ids[i], SPRITE_ID_NUM0+digit);
+        set_sprite_tile(ids[i], SPRITE_NUM0+digit);
     }
 }
 
@@ -49,6 +50,7 @@ void main() {
     const UINT8 score_sprites[] = {4,5,6};
 
     om_init(&objmanager, 7);
+    pm_init(&prjmanager);
 
     set_bkg_data(0, 18, BackgroundTileset);
     set_bkg_tiles(0, 0, BackgroundTilemapWidth, BackgroundTilemapHeight, BackgroundTilemap);
@@ -61,47 +63,51 @@ void main() {
     SPRITES_8x8;
     set_sprite_data(0,13,Sprites);
 
-    set_sprite_tile(bird_sprite_id,0);
+    set_sprite_tile(bird_sprite_id, SPRITE_BIRD);
     set_sprite_palette(0, 1, birdPalette);
     move_sprite(bird_sprite_id, pos_x, pos_y);
 
     //create health sprites and put them on screen
     for (int i = 0; i < 3; i++) {
-        int id = health_sprites[i];
-        set_sprite_tile(id, 2);
-        move_sprite(id, (i+1)*9, 16);
+        int prj_id = health_sprites[i];
+        set_sprite_tile(prj_id, 2);
+        move_sprite(prj_id, (i+1)*9, 16);
     }
     //create score sprites
     for (int i = 0; i < 3; i++) {
-        int id = score_sprites[i];
-        set_sprite_tile(id, SPRITE_ID_NUM0);
-        move_sprite(id, (i+1)*9+(45), 16);
+        int prj_id = score_sprites[i];
+        set_sprite_tile(prj_id, SPRITE_NUM0);
+        move_sprite(prj_id, (i+1)*9+(45), 16);
     }
 
     SHOW_SPRITES;
 
     DISPLAY_ON;
 
-    while (1) {
-        switch (joypad()) {
-            case J_LEFT:
-                pos_x--;
-                break;
-            case J_RIGHT:
-                pos_x++;
-                break;
-            case J_DOWN:
-                pos_y++;
-                break;
-            case J_UP:
-                pos_y--;
-                break;
-            case J_A:
-                break;
-            case J_B:
-                break;
+    while (true) {
+
+        // INPUT HANDLING
+        if (joypad() & J_LEFT) {
+            pos_x--;
+        } else if (joypad() & J_RIGHT) {
+            pos_x++;
+        }
+        if (joypad() & J_UP) {
+            pos_y--;
+        } else if (joypad() & J_DOWN) {
+            pos_y++;
+        }
+        if (joypad() & J_A) {
+
+        }
+        if (joypad() & J_B) {
+            UINT8 prj_id = assign_id(&objmanager);
+            set_sprite_tile(prj_id, SPRITE_BALL);
+            move_sprite(prj_id, 150, pos_y);
+            add_projectile(&prjmanager, prj_id, 150, pos_y, 0, -1);
         }
 
+        //BORDER HANDLING
         if (pos_x < SCREEN_X_MIN+8) {
             pos_x = SCREEN_X_MIN+8;
         } else if (pos_x > SCREEN_X_MAX) {
@@ -115,13 +121,6 @@ void main() {
 
         move_sprite(bird_sprite_id, pos_x, pos_y);
         scroll_bkg(frame%2, 0);
-
-        // if (frame%1000==0) {
-        //     UINT8 id = assign_id(&objmanager);
-        //     set_sprite_tile(id, 2);
-        //     move_sprite(id, 150, pos_y);
-        //     add_projectile(&prjmanager, id, 150, pos_y, 0, -1);
-        // }
 
         tick(&prjmanager);
         update_score(score_sprites, 3, frame);
