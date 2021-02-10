@@ -1,0 +1,4 @@
+#define SCREEN_Y_MIN 0
+#define SCREEN_Y_MAX 144
+#define SCREEN_X_MIN 0
+#define SCREEN_X_MAX 160
