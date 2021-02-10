@@ -5,12 +5,12 @@
  Include File.
 
  Info:
-  Form                 : Each tile separate.
+  Form                 : All tiles as one unit.
   Format               : Gameboy 4 color.
   Compression          : None.
   Counter              : None.
   Tile size            : 8 x 8
-  Tiles                : 0 to 2
+  Tiles                : 0 to 12
 
   Palette colors       : Included.
   SGB Palette          : None.
@@ -63,8 +63,8 @@
 #define SpritesCGBPal1c3 32767
 
 /* Gameboy Color palette 2 */
-#define SpritesCGBPal2c0 6076
-#define SpritesCGBPal2c1 8935
+#define SpritesCGBPal2c0 0
+#define SpritesCGBPal2c1 31744
 #define SpritesCGBPal2c2 6596
 #define SpritesCGBPal2c3 5344
 
@@ -102,8 +102,17 @@
 #define SpritesCGB0 0
 #define SpritesCGB1 1
 #define SpritesCGB2 1
-extern unsigned char SpritesTLE0[];
-extern unsigned char SpritesTLE1[];
-extern unsigned char SpritesTLE2[];
+#define SpritesCGB3 2
+#define SpritesCGB4 2
+#define SpritesCGB5 2
+#define SpritesCGB6 2
+#define SpritesCGB7 2
+#define SpritesCGB8 2
+#define SpritesCGB9 2
+#define SpritesCGB10 2
+#define SpritesCGB11 2
+#define SpritesCGB12 2
+/* Start of tile array. */
+extern unsigned char Sprites[];
 
 /* End of SPRITES.H */

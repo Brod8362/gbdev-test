@@ -1,6 +1,7 @@
 #include <gb/gb.h>
 #include <gb/cgb.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "graphics/sprites.c"
 #include "tilemap/graphics.c"
@@ -9,6 +10,11 @@
 #include "spritemanager.c"
 #include "projectilemanager.c"
 #include "display.h"
+
+#define SPRITE_ID_BIRD 0
+#define SPRITE_ID_BALL 1
+#define SPRITE_ID_HEART 2
+#define SPRITE_ID_NUM0 3
 
 int frame = 0;
 
@@ -21,10 +27,19 @@ UWORD birdPalette[] = {
     6075, 276, 32767, 1
 };
 
+void update_score(UINT8 ids[], UINT8 len, int score) {
+    for (INT8 i = len-1; i >= 0; i--) {
+        int digit = score%10;
+        score/=10;
+        set_sprite_tile(ids[i], SPRITE_ID_NUM0+digit);
+    }
+}
+
 void main() {
 
     short pos_x = 50;
     short pos_y = 70;
+    short score = 0;
 
     ObjManager objmanager;
     ProjectileManager prjmanager;
@@ -44,9 +59,7 @@ void main() {
     //sprite handler stuff
 
     SPRITES_8x8;
-    set_sprite_data(0,0,SpritesTLE0);
-    set_sprite_data(1,0,SpritesTLE2);
-    set_sprite_data(2,0,SpritesTLE1);
+    set_sprite_data(0,13,Sprites);
 
     set_sprite_tile(bird_sprite_id,0);
     set_sprite_palette(0, 1, birdPalette);
@@ -55,8 +68,14 @@ void main() {
     //create health sprites and put them on screen
     for (int i = 0; i < 3; i++) {
         int id = health_sprites[i];
-        set_sprite_tile(id, 1);
+        set_sprite_tile(id, 2);
         move_sprite(id, (i+1)*9, 16);
+    }
+    //create score sprites
+    for (int i = 0; i < 3; i++) {
+        int id = score_sprites[i];
+        set_sprite_tile(id, SPRITE_ID_NUM0);
+        move_sprite(id, (i+1)*9+(45), 16);
     }
 
     SHOW_SPRITES;
@@ -105,6 +124,7 @@ void main() {
         // }
 
         tick(&prjmanager);
+        update_score(score_sprites, 3, frame);
         wait_vbl_done();
         frame++;
     }
