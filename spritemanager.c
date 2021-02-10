@@ -32,6 +32,8 @@ void free_id(ObjManager *manager, UINT8 id) {
         return;
     }
     manager->available[index] = true;
+    move_sprite(manager->ids[index], 0,0);
+    set_sprite_tile(manager->ids[index], 0);
 }
 
 /*
@@ -44,4 +46,11 @@ INT8 find_id_index(ObjManager *manager, UINT8 id) {
         }
     }
     return -1;
+}
+
+void free_all(ObjManager *manager) {
+    for (UINT8 i = 0; i < MAX_IDS; i++) {
+        UINT8 id = manager->ids[i];
+        free_id(manager, id);
+    }
 }

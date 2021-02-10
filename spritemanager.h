@@ -1,6 +1,6 @@
 #include <stdbool.h>
 
-#define MAX_IDS 20
+#define MAX_IDS 16
 
 typedef struct {
     UINT8 ids[MAX_IDS];
@@ -21,7 +21,10 @@ Mark a given ID as available
 */
 void free_id(ObjManager *manager, UINT8 id);
 
+void free_all(ObjManager *manager);
+
 /*
 Find the index of an ID
 */
 INT8 find_id_index(ObjManager *manager, UINT8 id);
+
